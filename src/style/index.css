@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Raleway:wght@100&display=swap');
+*{
+    font-family: 'Montserrat';
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.dark{
+    background-color: #020203;
+}
+main{
+    margin-left: 100px;
+}
+.margin{
+    margin-top: 70px;
+    margin-bottom: 70px;
+}

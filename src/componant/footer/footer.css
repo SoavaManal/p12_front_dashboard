@@ -1,0 +1,21 @@
+.footer{
+    width: 7%;
+    position: absolute;
+    top:90px
+}
+
+.footer p{
+    color:white;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    padding: 5px;
+    font-size: 0.6rem;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.footer img{
+    display: block;
+    width: 64px;
+    height: 64px;
+    padding: 5px;
+}
