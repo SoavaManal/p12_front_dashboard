@@ -4,6 +4,7 @@
 }
 ul{
     list-style: none;
+    padding-left: 0;
 }
 a{
     text-decoration: none;
@@ -11,13 +12,13 @@ a{
 .flex{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 .dark{
     background-color: #020203;
 }
 main{
-    margin-left: 100px;
+    margin-left: 150px;
 }
 .margin{
     margin-top: 70px;

@@ -1,0 +1,24 @@
+.keydata img{
+    width: 60px;
+    height: 60px;
+}
+.keydata h2{
+    font-size: 1rem;
+    font-weight: bold;
+}
+.keydata p{
+    font-size: 0.8rem;
+    font-weight: bold;
+    color:#74798C;
+}
+.keydata{
+    margin-bottom: 50px;
+}
+.card{
+    padding: 20px;
+    margin: 20px;
+    background-color: #FBFBFB;
+}
+.text_card{
+    padding-left: 10px;
+}

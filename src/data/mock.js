@@ -209,7 +209,7 @@ export const userActivity = [
 ];
 
 /* http://localhost:3000/user/:id/average-sessions */
-export const averageSessionsUser18 = [
+export const averageSessionsUser = [
   {
     data: {
       userId: 12,
