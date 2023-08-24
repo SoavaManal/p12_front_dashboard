@@ -3,12 +3,11 @@ import {
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
-  PolarRadiusAxis,
   ResponsiveContainer
 } from "recharts";
 export default function Performance(performance) {
   const data = performance;
-  console.log(data);
+  // console.log(data);
   return (
     <div style={{width:"100%", height:"300px"}}>
       <ResponsiveContainer width="100%" height="100%" aspect={1.2}>
