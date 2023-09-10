@@ -1,3 +1,13 @@
 .score{
     background-color: #FBFBFB;
+    border-radius: 5px;
+    margin: auto;
+    position: relative;
+}
+.score::before{
+    content: "Score";
+    position: absolute;
+    top:20px;
+    left:20px;
+    font-weight: 700;
 }

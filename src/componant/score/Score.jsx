@@ -1,35 +1,34 @@
 import { PieChart, Pie, Cell, Label } from "recharts";
-import "./score.css"
+import "./score.css";
 
 export default function Scrore(score) {
-  const scoreValue = score.score;
-  const scoreOff = 1 - scoreValue;
+  console.log(score.score);
   const data = [
-    { name: "Group A", value: scoreValue },
-    { name: "Group B", value: scoreOff },
+    { name: "Score", value: score.score.scoreValue },
+    { name: "Score", value: score.score.scoreOff },
   ];
-  const COLORS = ["#E60000", "#000"];
+  console.log(data);
+  const COLORS = ["#E60000", "#FBFBFB"];
   return (
     <div className="score">
       <PieChart width={300} height={300}>
         <Pie
           data={data}
-          cx={120}
-          cy={120}
+          cx={150}
+          cy={150}
+          dataKey="value"
           innerRadius={60}
           outerRadius={80}
-          // fill="#8884d8"
-          paddingAngle={5}
-          dataKey="value"
-          // startAngle={90}
+          startAngle={90}
+          strokeWidth={10}
+          cornerRadius={10}
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
           ))}
 
           <Label position="center" width="95">
-            {" "}
-            {`${scoreValue * 100}% de votre objectif`}
+            {`${score.score.scoreValue * 100}% de votre objectif`}
           </Label>
         </Pie>
       </PieChart>

@@ -1,8 +1,4 @@
 import { useParams } from "react-router-dom";
-// import { dataUser } from "../data/mock.js";
-// import { averageSessionsUser } from "../data/mock.js";
-// import { userActivity } from "../data/mock.js";
-// import { userPerformance } from "../data/mock.js";
 import Score from "../componant/score/Score.jsx";
 import Average from "../componant/average/Average.jsx";
 import Activity from "../componant/activity/Activity.jsx";
@@ -14,7 +10,9 @@ import proteinIcon from "../asset/protein-icon.png";
 import fatIcon from "../asset/fat-icon.png";
 import carbsIcon from "../asset/carbs-icon.png";
 import { useState, useEffect } from "react";
+import DataModel from "./DataModel.jsx";
 
+// ---Récuperation de l'id---
 export default function Dashboard() {
   const GetId = () => {
     const routeParams = useParams();
@@ -44,6 +42,7 @@ export default function Dashboard() {
   const [activity, setActivity] = useState();
   const [performance, setPerformance] = useState();
 
+  //---apelle API---
   useEffect(() => {
     const urlUser = `http://localhost:3000/user/${userId}`;
     const urlAverage = `http://localhost:3000/user/${userId}/average-sessions`;
@@ -59,21 +58,40 @@ export default function Dashboard() {
     fetchfunction(urlPerformance, setPerformance);
   }, [userId]);
 
-  if (!user.data || !average || !performance || !activity) {
-    // console.log(user)
-    return null;
+  //---récperation des donnés formater a l'aide de classe de modération---
+  let chart = {};
+  let chartBar = {};
+  let radar = {};
+  let lineChart = {};
+  if (user.data && activity && performance && average) {
+    chart = DataModel.transformScore(user.data.score || user.data.todayScore);
+    chartBar = DataModel.transformActivity(activity.data.sessions);
+    radar = DataModel.transformPerformance(performance.data);
+    lineChart = DataModel.transformAverage(average.data.sessions);
   }
+
+  //---500 error---
+  if (!user.data || !average || !performance || !activity) {
+    return (
+      <div>
+        <h1>500</h1>
+        <p>Sorry... Internet server error</p>
+      </div>
+    );
+  }
+
+  //---jsx---
   return (
     <main>
-      <h1>Bonjour {user.data.userInfos.firstName}</h1>
+      <h1>Bonjour <span className="colorRed">{user.data.userInfos.firstName}</span></h1>
       <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-      <div className="flex">
+      <div className="container_main">
         <div>
-          <Activity activity={activity.data.sessions} />
-          <div className="flex">
-            <Average avrSession={average.data.sessions} />
-            <Performance performance={performance.data.data} />
-            <Score score={user.data.score || user.data.todayScore} />
+          <Activity activity={chartBar} />
+          <div className="grid-container">
+            <Average avrSession={lineChart} />
+            <Performance performance={radar} />
+            <Score score={chart} />
           </div>
         </div>
         <div>
@@ -81,7 +99,7 @@ export default function Dashboard() {
             <li>
               <Keydata
                 img={calorieIcon}
-                value={user.data.keyData.calorieCount}
+                value={user.data.keyData.calorieCount * 0.001}
                 init="kCal"
                 text="Calories"
               />

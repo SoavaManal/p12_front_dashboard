@@ -1,0 +1,16 @@
+.recharts-bar{
+    position: relative;
+    background-color: #FBFBFB;
+    margin-bottom: 40px;
+    margin-top:60px;
+    border-radius: 5px;
+}
+.recharts-bar::before{
+    content:'Activité quotidienne';
+    color:black;
+    font-size: 1.2rem;
+    font-weight: 700;
+    position: absolute;
+    top:5px;
+    left:10px
+}
