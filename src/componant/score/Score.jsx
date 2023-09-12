@@ -1,4 +1,4 @@
-import { PieChart, Pie, Cell, Label } from "recharts";
+import { PieChart, Pie, Cell, Label, ResponsiveContainer } from "recharts";
 import "./score.css";
 
 export default function Scrore(score) {
@@ -10,12 +10,13 @@ export default function Scrore(score) {
   console.log(data);
   const COLORS = ["#E60000", "#FBFBFB"];
   return (
-    <div className="score">
+    <div className="chart-graph score">
+      {/* <ResponsiveContainer width="100%" height="100%"> */}
       <PieChart width={300} height={300}>
         <Pie
           data={data}
-          cx={150}
-          cy={150}
+          cx={100}
+          cy={120}
           dataKey="value"
           innerRadius={60}
           outerRadius={80}
@@ -32,6 +33,7 @@ export default function Scrore(score) {
           </Label>
         </Pie>
       </PieChart>
+      {/* </ResponsiveContainer> */}
     </div>
   );
 }

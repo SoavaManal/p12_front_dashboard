@@ -7,6 +7,9 @@
     padding: 0 120px 0 120px ;
     font-size: 1.1rem;
     font-weight: bolder;
+    @media (max-width:1024px) {
+        padding: 0 30px 0 30px;
+    }
 }
 .header_list a{
     color:white

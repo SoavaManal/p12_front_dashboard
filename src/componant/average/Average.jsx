@@ -23,9 +23,11 @@ export default function Average(avrSession) {
     return null;
   };
   return (
-    <div style={{ width: "100%", height: 300 }}>
-      <ResponsiveContainer>
+    <div className="chart-graph">
+      {/* <ResponsiveContainer > */}
         <AreaChart
+          width={300}
+          height={300}
           className="linechart"
           data={data}
           margin={{
@@ -50,7 +52,7 @@ export default function Average(avrSession) {
             cursor={{
               stroke: "black",
               strokeOpacity: 0.1,
-              strokeWidth: 40,
+              strokeWidth: 50,
             }}
           />
           <Area
@@ -60,7 +62,7 @@ export default function Average(avrSession) {
             fill="#E60000"
           />
         </AreaChart>
-      </ResponsiveContainer>
+      {/* </ResponsiveContainer> */}
     </div>
   );
 }

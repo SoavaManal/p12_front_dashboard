@@ -9,8 +9,17 @@ export default function Performance(performance) {
   const data = performance;
   console.log(data);
   return (
-    <div style={{ background: "#282D30", margin: "auto",padding:"0px", borderRadius: "5px" }}>
-      
+    // <div >
+    <div
+      className="chart-graph"
+      style={{
+        background: "#282D30",
+        margin: "auto",
+        padding: "0px",
+        borderRadius: "5px",
+      }}
+    >
+      {/* <ResponsiveContainer width="100%" height="100%"> */}
         <RadarChart
           width={300}
           height={300}
@@ -18,14 +27,13 @@ export default function Performance(performance) {
           cy="50%"
           outerRadius="80%"
           data={data.performance}
-          // margin={{top: 25, right: 25, bottom: 25, left: 25}}
         >
-          <PolarGrid gridType="polygon" radialLines={false}/>
+          <PolarGrid gridType="polygon" radialLines={false} />
           <PolarAngleAxis
             dataKey="kindTransform"
             stroke="#fff"
             tickLine={false}
-            style={{fontSize :"0.9rem", fontWeight:"700"}}
+            style={{ fontSize: "0.9rem", fontWeight: "700" }}
           />
           <Radar
             width={250}
@@ -35,7 +43,7 @@ export default function Performance(performance) {
             fillOpacity={0.6}
           />
         </RadarChart>
-  
+      {/* </ResponsiveContainer> */}
     </div>
   );
 }

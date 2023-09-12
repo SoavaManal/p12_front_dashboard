@@ -86,9 +86,11 @@ export default function Dashboard() {
       <h1>Bonjour <span className="colorRed">{user.data.userInfos.firstName}</span></h1>
       <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       <div className="container_main">
-        <div>
+        <div className="container_verti">
+      
           <Activity activity={chartBar} />
-          <div className="grid-container">
+        
+          <div className="flex">
             <Average avrSession={lineChart} />
             <Performance performance={radar} />
             <Score score={chart} />
