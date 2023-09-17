@@ -2,12 +2,10 @@ import { PieChart, Pie, Cell, Label, ResponsiveContainer } from "recharts";
 import "./score.css";
 
 export default function Scrore(score) {
-  console.log(score.score);
   const data = [
     { name: "Score", value: score.score.scoreValue },
     { name: "Score", value: score.score.scoreOff },
   ];
-  console.log(data);
   const COLORS = ["#E60000", "#FBFBFB"];
   return (
     <div
@@ -34,8 +32,7 @@ export default function Scrore(score) {
             strokeWidth={10}
             cornerRadius={10}
             sectorPadding={50}
-            >
-
+          >
             {data.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}

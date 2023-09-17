@@ -1,3 +1,4 @@
+// import
 import { useParams } from "react-router-dom";
 import Score from "../componant/score/Score.jsx";
 import Average from "../componant/average/Average.jsx";
@@ -12,7 +13,7 @@ import carbsIcon from "../asset/carbs-icon.png";
 import { useState, useEffect } from "react";
 import DataModel from "./DataModel.jsx";
 
-// ---Récuperation de l'id---
+// Récuperation de l'id
 export default function Dashboard() {
   const GetId = () => {
     const routeParams = useParams();
@@ -20,7 +21,7 @@ export default function Dashboard() {
   };
   const userId = GetId();
 
-  // ---Mock de données de l'api---
+  // Mock de données de l'api
   // const user = dataUser.find((item) => item.data.id === parseInt(GetId()));
 
   // const averageUser = averageSessionsUser.find(
@@ -37,12 +38,13 @@ export default function Dashboard() {
 
   //---Fetch (Get) data---
 
+  // création des useState
   const [average, setAverage] = useState();
   const [user, setUser] = useState({});
   const [activity, setActivity] = useState();
   const [performance, setPerformance] = useState();
 
-  //---apelle API---
+  // Apelle API
   useEffect(() => {
     const urlUser = `http://localhost:3000/user/${userId}`;
     const urlAverage = `http://localhost:3000/user/${userId}/average-sessions`;
@@ -51,24 +53,28 @@ export default function Dashboard() {
     const fetchfunction = async (url, setFetch) => {
       try {
         const response = await fetch(url);
-        
+
         if (!response.ok) {
           // Si la réponse n'est pas ok (erreur HTTP)
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-  
+
         const data = await response.json();
         setFetch(data);
       } catch (error) {
-        console.error("Une erreur s'est produite lors de la récupération des données :", error);
-    }};
+        console.error(
+          "Une erreur s'est produite lors de la récupération des données :",
+          error
+        );
+      }
+    };
     fetchfunction(urlUser, setUser);
     fetchfunction(urlAverage, setAverage);
     fetchfunction(urlActivity, setActivity);
     fetchfunction(urlPerformance, setPerformance);
   }, [userId]);
 
-  //---récperation des donnés formater a l'aide de classe de modération---
+  // Récperation des donnés formater a l'aide de classe de modération
   let chart = {};
   let chartBar = {};
   let radar = {};
@@ -80,6 +86,7 @@ export default function Dashboard() {
     lineChart = DataModel.transformAverage(average.data.sessions);
   }
 
+  // Pas de données
   if (!user.data || !average || !performance || !activity) {
     return (
       <div className="margin">
@@ -89,13 +96,16 @@ export default function Dashboard() {
     );
   }
 
+  // Avec les données
   return (
     <main>
       <h1>
         Bonjour{" "}
         <span className="colorRed">{user.data.userInfos.firstName}</span>
       </h1>
-      <p className="paragraphe">Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+      <p className="paragraphe">
+        Félicitation ! Vous avez explosé vos objectifs hier 👏
+      </p>
       <div className="container_main">
         <div className="container_verti">
           <Activity activity={chartBar} />

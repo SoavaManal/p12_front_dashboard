@@ -31,7 +31,7 @@ export default function Average(avrSession) {
         background: "#E60000",
         marginRight: "25px",
         paddingBottom: "5px",
-        borderRadius: "5px"
+        borderRadius: "5px",
       }}
     >
       <ResponsiveContainer width="100%" height="100%">

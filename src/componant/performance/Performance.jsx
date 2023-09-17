@@ -7,7 +7,6 @@ import {
 } from "recharts";
 export default function Performance(performance) {
   const data = performance;
-  console.log(data);
   return (
     <div
       style={{
@@ -15,16 +14,11 @@ export default function Performance(performance) {
         height: "270px",
         background: "#282D30",
         marginRight: "25px",
-        borderRadius: "5px"
+        borderRadius: "5px",
       }}
     >
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart
-          cx="50%"
-          cy="50%"
-          outerRadius="80%"
-          data={data.performance}
-        >
+        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data.performance}>
           <PolarGrid gridType="polygon" radialLines={false} />
           <PolarAngleAxis
             dataKey="kindTransform"
