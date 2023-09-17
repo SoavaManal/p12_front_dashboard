@@ -9,7 +9,7 @@ export default class DataModel {
       const date = item.day;
       const last = date.length - 1;
       const day =
-        date[last - 1] == 0 ? date[last] : date[last - 1] + date[last];
+        date[last - 1] === 0 ? date[last] : date[last - 1] + date[last];
       const kilogram = item.kilogram;
       const calories = item.calories;
       return { day, kilogram, calories };

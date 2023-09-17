@@ -5,6 +5,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  Legend,
   ResponsiveContainer,
 } from "recharts";
 import "./activity.css";
@@ -79,7 +80,7 @@ export default function Activity(activity) {
             includeHidden={true}
           />
           <Tooltip content={<CustomTooltip />} />
-          <Legends
+          <Legend
             payload={customtext}
             verticalAlign="top"
             align="right"
