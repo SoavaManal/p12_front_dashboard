@@ -49,9 +49,19 @@ export default function Dashboard() {
     const urlActivity = `http://localhost:3000/user/${userId}/activity`;
     const urlPerformance = `http://localhost:3000/user/${userId}/performance`;
     const fetchfunction = async (url, setFetch) => {
-      const data = await (await fetch(url)).json();
-      setFetch(data);
-    };
+      try {
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+          // Si la réponse n'est pas ok (erreur HTTP)
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+  
+        const data = await response.json();
+        setFetch(data);
+      } catch (error) {
+        console.error("Une erreur s'est produite lors de la récupération des données :", error);
+    }};
     fetchfunction(urlUser, setUser);
     fetchfunction(urlAverage, setAverage);
     fetchfunction(urlActivity, setActivity);
@@ -70,26 +80,26 @@ export default function Dashboard() {
     lineChart = DataModel.transformAverage(average.data.sessions);
   }
 
-  //---500 error---
   if (!user.data || !average || !performance || !activity) {
     return (
-      <div>
+      <div className="margin">
         <h1>500</h1>
         <p>Sorry... Internet server error</p>
       </div>
     );
   }
 
-  //---jsx---
   return (
     <main>
-      <h1>Bonjour <span className="colorRed">{user.data.userInfos.firstName}</span></h1>
-      <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+      <h1>
+        Bonjour{" "}
+        <span className="colorRed">{user.data.userInfos.firstName}</span>
+      </h1>
+      <p className="paragraphe">Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       <div className="container_main">
         <div className="container_verti">
-      
           <Activity activity={chartBar} />
-        
+
           <div className="flex">
             <Average avrSession={lineChart} />
             <Performance performance={radar} />

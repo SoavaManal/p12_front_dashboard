@@ -5,7 +5,8 @@ import './header.css'
 
 export default function Header(){
     return(
-        <header className='flex dark'>
+        <header className='dark'>
+            <div className='container flex'>
             <img src={logo} alt="" className='logo'/>
             <ul className='flex header_list'>
                 <li><NavLink>Accueil</NavLink></li>
@@ -13,6 +14,7 @@ export default function Header(){
                 <li><NavLink>Réglage</NavLink></li>
                 <li><NavLink>Communauté</NavLink></li>
             </ul>
+            </div>
         </header>
     )
 }

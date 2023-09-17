@@ -1,12 +1,5 @@
 .recharts-bar{
     position: relative;
-    background-color: #FBFBFB;
-    margin-bottom: 40px;
-    margin-top:60px;
-    border-radius: 5px;
-    /* @media (max-width:1024px){
-        margin-top:20px;
-    } */
 }
 .recharts-bar::before{
     content:'Activité quotidienne';
@@ -14,9 +7,11 @@
     font-size: 1rem;
     font-weight: 700;
     position: absolute;
-    top:5px;
-    left:10px;
+    top:20px;
+    left:20px;
 }
-.chart-container{
-    width: 100%;
+@media (min-width:1024) and  (max-width:1270){
+    .recharts-bar{
+        width: 600px;
+    }
 }

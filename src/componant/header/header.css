@@ -1,16 +1,28 @@
-.logo{
-    width: 180px;
-    height: 65px;
-    padding: 10px;
+.logo {
+  width: 180px;
+  height: 65px;
+  padding: 10px;
+  margin-right: 100px;
 }
-.header_list li{
-    padding: 0 120px 0 120px ;
-    font-size: 1.1rem;
-    font-weight: bolder;
-    @media (max-width:1024px) {
-        padding: 0 30px 0 30px;
-    }
+
+.container {
+  width: 100%;
 }
-.header_list a{
-    color:white
+
+.header_list {
+  list-style: none;
+  padding: 0;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.header_list li {
+  margin-right: 15px;
+  font-size: 1.1rem;
+  font-weight: bolder;
+  justify-content: space-between;
+}
+
+.header_list a {
+  color: #fff;
 }

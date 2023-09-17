@@ -9,20 +9,17 @@ export default function Performance(performance) {
   const data = performance;
   console.log(data);
   return (
-    // <div >
     <div
-      className="chart-graph"
       style={{
+        width: "35%",
+        height: "270px",
         background: "#282D30",
-        margin: "auto",
-        padding: "0px",
-        borderRadius: "5px",
+        marginRight: "25px",
+        borderRadius: "5px"
       }}
     >
-      {/* <ResponsiveContainer width="100%" height="100%"> */}
+      <ResponsiveContainer width="100%" height="100%">
         <RadarChart
-          width={300}
-          height={300}
           cx="50%"
           cy="50%"
           outerRadius="80%"
@@ -43,7 +40,7 @@ export default function Performance(performance) {
             fillOpacity={0.6}
           />
         </RadarChart>
-      {/* </ResponsiveContainer> */}
+      </ResponsiveContainer>
     </div>
   );
 }

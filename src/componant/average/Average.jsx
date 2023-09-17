@@ -23,18 +23,25 @@ export default function Average(avrSession) {
     return null;
   };
   return (
-    <div className="chart-graph">
-      {/* <ResponsiveContainer > */}
+    <div
+      className="linechart"
+      style={{
+        width: "35%",
+        height: "270px",
+        background: "#E60000",
+        marginRight: "25px",
+        paddingBottom: "5px",
+        borderRadius: "5px"
+      }}
+    >
+      <ResponsiveContainer width="100%" height="100%">
         <AreaChart
-          width={300}
-          height={300}
-          className="linechart"
           data={data}
           margin={{
-            top: 60,
-            right: 0,
+            top: 80,
+            right: 30,
             left: 0,
-            bottom: 60,
+            bottom: 0,
           }}
         >
           <CartesianGrid horizontal={false} vertical={false} fill="#E60000" />
@@ -62,7 +69,7 @@ export default function Average(avrSession) {
             fill="#E60000"
           />
         </AreaChart>
-      {/* </ResponsiveContainer> */}
+      </ResponsiveContainer>
     </div>
   );
 }

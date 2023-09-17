@@ -1,7 +1,4 @@
 .score{
-    background-color: #FBFBFB;
-    border-radius: 5px;
-    /* margin: auto; */
     position: relative;
 }
 .score::before{

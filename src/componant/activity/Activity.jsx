@@ -30,22 +30,36 @@ export default function Activity(activity) {
     return null;
   };
   return (
-    <div className="chart-container">
-      <ResponsiveContainer width="90%" height="70%">
+    <div
+      className="recharts-bar"
+      style={{
+        width: "100%",
+        height: "300px",
+        background: "#FBFBFB",
+        marginBottom: "25px",
+        borderRadius: "5px"
+      }}
+    >
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart
-          // className="recharts-bar"
-          width={900}
-          // height={300}
           data={data.activity}
-          // margin={{
-          //   top: 5,
-          //   right: 30,
-          //   left: 20,
-          //   bottom: 5,
-          // }}
+          margin={{
+            top: 20,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
         >
-          <CartesianGrid strokeDasharray="2" vertical={false} horizontal={true}/>
-          <XAxis dataKey="day" tickLine={false} padding={{ left: -50, right: -50 }}/>
+          <CartesianGrid
+            strokeDasharray="2"
+            vertical={false}
+            horizontal={true}
+          />
+          <XAxis
+            dataKey="day"
+            tickLine={false}
+            padding={{ left: -35, right: -35 }}
+          />
           <YAxis
             yAxisId="right"
             orientation="right"
@@ -72,6 +86,7 @@ export default function Activity(activity) {
             align="right"
             iconSize="10"
             iconType="circle"
+            inactiveColor="red"
             wrapperStyle={{ paddingBottom: "30px", paddingRight: "10px" }}
           />
           <Bar
